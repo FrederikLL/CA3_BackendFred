@@ -92,5 +92,81 @@ public class DemoResource {
     scan.close();
     return jsonStr;
   }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("planet/{id}")  
+    public String getSwPlanetData(@PathParam("id") int id) throws MalformedURLException, IOException{
+    URL url = new URL("https://swapi.co/api/planets/"+id);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+    con.setRequestProperty("User-Agent", "server"); //remember if you are using SWAPI
+    Scanner scan = new Scanner(con.getInputStream());
+    String jsonStr = null;
+    if (scan.hasNext()) {
+      jsonStr = scan.nextLine();
+      //jsonStr += "\n";
+    }
+    scan.close();
+    return jsonStr;
+  }
+    
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("film/{id}")  
+    public String getSwFilmData(@PathParam("id") int id) throws MalformedURLException, IOException{
+    URL url = new URL("https://swapi.co/api/films/"+id);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+    con.setRequestProperty("User-Agent", "server"); //remember if you are using SWAPI
+    Scanner scan = new Scanner(con.getInputStream());
+    String jsonStr = null;
+    if (scan.hasNext()) {
+      jsonStr = scan.nextLine();
+      //jsonStr += "\n";
+    }
+    scan.close();
+    return jsonStr;
+  }
+    
+      @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("species/{id}")  
+    public String getSwSpeciesData(@PathParam("id") int id) throws MalformedURLException, IOException{
+    URL url = new URL("https://swapi.co/api/species/"+id);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+    con.setRequestProperty("User-Agent", "server"); //remember if you are using SWAPI
+    Scanner scan = new Scanner(con.getInputStream());
+    String jsonStr = null;
+    if (scan.hasNext()) {
+      jsonStr = scan.nextLine();
+      //jsonStr += "\n";
+    }
+    scan.close();
+    return jsonStr;
+  }
+    
+      @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("starship/{id}")  
+    public String getSwStarshipData(@PathParam("id") int id) throws MalformedURLException, IOException{
+    URL url = new URL("https://swapi.co/api/starships/?page="+id);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+    con.setRequestProperty("User-Agent", "server"); //remember if you are using SWAPI
+    Scanner scan = new Scanner(con.getInputStream());
+    String jsonStr = null;
+    if (scan.hasNext()) {
+      jsonStr = scan.nextLine();
+      //jsonStr += "\n";
+    }
+    scan.close();
+    return jsonStr;
+  }
 
 }
